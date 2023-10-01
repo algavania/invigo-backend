@@ -7,14 +7,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
-origins = [
-    "http://invigo.onrender.com",
-    "https://invigo.onrender.com",
-    "http://localhost",
-    "http://localhost:8080",
-    "http://localhost:8081",
-    "http://localhost:8082",
-]
+origins = ["*"]
 
 app.add_middleware(
     CORSMiddleware,
