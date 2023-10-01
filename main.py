@@ -3,8 +3,24 @@ from pydantic import BaseModel
 import tensorflow as tf
 import numpy as np
 import json
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+origins = [
+    "http://invigo.onrender.com",
+    "https://invigo.onrender.com",
+    "http://localhost",
+    "http://localhost:8080",
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class Interaction(BaseModel):
     user_id: int
